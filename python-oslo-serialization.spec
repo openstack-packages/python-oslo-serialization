@@ -13,6 +13,8 @@ BuildArch:      noarch
 
 BuildRequires:  python-devel
 BuildRequires:  python-pbr
+BuildRequires: python-sphinx
+BuildRequires: python-oslo-sphinx
 
 Requires:  python-iso8601
 Requires:  python-six
@@ -29,9 +31,6 @@ Oslo Serialization is an OpenStack library for representing objects in transmitt
 %package doc
 Summary:    Documentation for OpenStack common Serialization library
 Group:      Documentation
-
-BuildRequires: python-sphinx
-BuildRequires: python-oslo-sphinx
 
 %description doc
 Documentation for OpenStack common Serialization library.
