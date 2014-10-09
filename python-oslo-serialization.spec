@@ -1,68 +1,72 @@
-%global sname oslo.serialization
+# Created by pyp2rpm-1.0.1
+%global pypi_name oslo.serialization
+%global pkg_name oslo-serialization
 
 Name:           python-oslo-serialization
-Version:        0.3
-Release:        3%{?dist}
-Summary:        Oslo Serialization library for OpenStack projects
+Version:        0.3.0
+Release:        1%{?dist}
+Summary:        OpenStack oslo.serialization library
 
 License:        ASL 2.0
-URL:            http://launchpad.net/oslo
-Source0:        https://pypi.python.org/packages/source/o/%{sname}/%{sname}-%{version}.tar.gz
-
+URL:            https://launchpad.net/oslo
+Source0:        https://pypi.python.org/packages/source/o/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python-devel
+BuildRequires:  python2-devel
 BuildRequires:  python-pbr
-BuildRequires: python-sphinx
-BuildRequires: python-oslo-sphinx
-
-Requires:  python-iso8601
-Requires:  python-six
-Requires:  python-babel
-Requires:  python-oslo-utils
+Requires:       python-babel
+Requires:       python-iso8601
+Requires:       python-oslo-utils
+Requires:       python-six
 
 %description
-The Oslo project intends to produce a python library containing infrastructure
-code shared by OpenStack projects. The APIs provided by the project should be
-high quality, stable, consistent and generally useful.
-
-Oslo Serialization is an OpenStack library for representing objects in transmittable and storable formats.
+An OpenStack library for representing objects in transmittable and
+storable formats.
 
 %package doc
-Summary:    Documentation for OpenStack common Serialization library
+Summary:    Documentation for the Oslo serialization library
 Group:      Documentation
 
+BuildRequires:  python-sphinx
+BuildRequires:  python-oslo-sphinx
+
 %description doc
-Documentation for OpenStack common Serialization library.
+Documentation for the Oslo serialization library.
 
 %prep
+%setup -q -n %{pypi_name}-%{upstream_version}
+# Let RPM handle the dependencies
+rm -f requirements.txt
+# make doc build compatible with python-oslo-sphinx RPM
+sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
-%setup -q -n %{sname}-%{upstream_version}
-
-# Remove bundled egg-info
-rm -rf %{sname}.egg-info
 
 %build
 %{__python2} setup.py build
 
 # generate html docs
-python setup.py build_sphinx
-
+sphinx-build doc/source html
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
+
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
+#delete tests
+rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
+
 %files
 %doc README.rst LICENSE
 %{python2_sitelib}/oslo
-%{python2_sitelib}/%{sname}-%{version}*.pth
-%{python2_sitelib}/%{sname}-%{version}*.egg-info
+%{python2_sitelib}/*.egg-info
+%{python2_sitelib}/*-nspkg.pth
 
 %files doc
-%doc doc/build/html doc/source/readme.rst
+%doc html LICENSE
+
 
 %changelog
-* Wed Oct 08 2014 Dan Prince <dprince@redhat.com> - XXX
-- Initial commit.
+* Wed Sep 17 2014 Nejc Saje <nsaje@redhat.com> - 0.3.0-1
+- Initial package (#1142753)
+
