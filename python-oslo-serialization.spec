@@ -14,6 +14,9 @@ BuildArch:      noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
+BuildRequires:  python-oslo-utils
+BuildRequires:  python-iso8601
+
 Requires:       python-babel
 Requires:       python-iso8601
 Requires:       python-oslo-utils
