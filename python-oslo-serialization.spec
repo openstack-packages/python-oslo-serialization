@@ -40,8 +40,6 @@ Documentation for the Oslo serialization library.
 %setup -q -n %{pypi_name}-%{upstream_version}
 # Let RPM handle the dependencies
 rm -f requirements.txt
-# make doc build compatible with python-oslo-sphinx RPM
-sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
 
 %build
