@@ -3,8 +3,8 @@
 %global pkg_name oslo-serialization
 
 Name:           python-oslo-serialization
-Version:        0.3.0
-Release:        1%{?dist}
+Version:        XXX
+Release:        XXX{?dist}
 Summary:        OpenStack oslo.serialization library
 
 License:        ASL 2.0
@@ -14,9 +14,6 @@ BuildArch:      noarch
 
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
-BuildRequires:  python-oslo-utils
-BuildRequires:  python-iso8601
-
 Requires:       python-babel
 Requires:       python-iso8601
 Requires:       python-oslo-utils
