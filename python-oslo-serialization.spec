@@ -1,9 +1,8 @@
 # Created by pyp2rpm-1.0.1
 %global pypi_name oslo.serialization
-%global pkg_name oslo-serialization
 
 Name:           python-oslo-serialization
-Version:        0.3.0
+Version:        1.1.0
 Release:        1%{?dist}
 Summary:        OpenStack oslo.serialization library
 
@@ -28,7 +27,7 @@ Summary:    Documentation for the Oslo serialization library
 Group:      Documentation
 
 BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-oslo-sphinx >= 2.2.0
 
 %description doc
 Documentation for the Oslo serialization library.
@@ -37,8 +36,6 @@ Documentation for the Oslo serialization library.
 %setup -q -n %{pypi_name}-%{version}
 # Let RPM handle the dependencies
 rm -f requirements.txt
-# make doc build compatible with python-oslo-sphinx RPM
-sed -i 's/oslosphinx/oslo.sphinx/' doc/source/conf.py
 
 
 %build
@@ -67,6 +64,9 @@ rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
 
 
 %changelog
+* Fri Dec 19 2014 Alan Pevec <apevec@redhat.com> - 1.1.0-1
+- update to 1.1.0
+
 * Wed Sep 17 2014 Nejc Saje <nsaje@redhat.com> - 0.3.0-1
 - Initial package (#1142753)
 
