@@ -2,7 +2,7 @@
 %global pypi_name oslo.serialization
 
 Name:           python-oslo-serialization
-Version:        1.1.0
+Version:        1.3.0
 Release:        1%{?dist}
 Summary:        OpenStack oslo.serialization library
 
@@ -17,6 +17,8 @@ Requires:       python-babel
 Requires:       python-iso8601
 Requires:       python-oslo-utils
 Requires:       python-six
+Requires:       python-msgpack
+Requires:       pytz
 
 %description
 An OpenStack library for representing objects in transmittable and
@@ -64,6 +66,9 @@ rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
 
 
 %changelog
+* Tue Feb 24 2015 Alan Pevec <alan.pevec@redhat.com> 1.3.0-1
+- Update to upstream 1.3.0
+
 * Fri Dec 19 2014 Alan Pevec <apevec@redhat.com> - 1.1.0-1
 - update to 1.1.0
 
