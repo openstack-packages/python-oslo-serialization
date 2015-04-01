@@ -2,7 +2,7 @@
 %global pypi_name oslo.serialization
 
 Name:           python-oslo-serialization
-Version:        1.3.0
+Version:        1.4.0
 Release:        1%{?dist}
 Summary:        OpenStack oslo.serialization library
 
@@ -67,6 +67,9 @@ rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
 
 
 %changelog
+* Wed Apr 01 2015 Alan Pevec <alan.pevec@redhat.com> 1.4.0-1
+- Update to upstream 1.4.0
+
 * Tue Feb 24 2015 Alan Pevec <alan.pevec@redhat.com> 1.3.0-1
 - Update to upstream 1.3.0
 
