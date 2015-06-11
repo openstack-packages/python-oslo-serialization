@@ -4,7 +4,7 @@
 
 Name:           python-oslo-serialization
 Version:        XXX
-Release:        XXX{?dist}
+Release:        XXX
 Summary:        OpenStack oslo.serialization library
 
 License:        ASL 2.0
@@ -18,6 +18,7 @@ Requires:       python-babel
 Requires:       python-iso8601
 Requires:       python-oslo-utils
 Requires:       python-six
+Requires:       python-msgpack >= 0.4.0
 
 %description
 An OpenStack library for representing objects in transmittable and
@@ -29,6 +30,8 @@ Group:      Documentation
 
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-oslo-utils
+BuildRequires:  python-msgpack
 
 %description doc
 Documentation for the Oslo serialization library.
@@ -66,6 +69,3 @@ rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
 
 
 %changelog
-* Wed Sep 17 2014 Nejc Saje <nsaje@redhat.com> - 0.3.0-1
-- Initial package (#1142753)
-
