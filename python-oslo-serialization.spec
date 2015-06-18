@@ -3,7 +3,7 @@
 
 Name:           python-oslo-serialization
 Version:        1.4.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        OpenStack oslo.serialization library
 
 License:        ASL 2.0
@@ -67,6 +67,9 @@ rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
 
 
 %changelog
+* Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
+
 * Wed Apr 01 2015 Alan Pevec <alan.pevec@redhat.com> 1.4.0-1
 - Update to upstream 1.4.0
 
