@@ -2,8 +2,8 @@
 %global pypi_name oslo.serialization
 
 Name:           python-oslo-serialization
-Version:        1.4.0
-Release:        2%{?dist}
+Version:        1.6.0
+Release:        1%{?dist}
 Summary:        OpenStack oslo.serialization library
 
 License:        ASL 2.0
@@ -29,7 +29,9 @@ Summary:    Documentation for the Oslo serialization library
 Group:      Documentation
 
 BuildRequires:  python-sphinx
-BuildRequires:  python-oslo-sphinx >= 2.2.0
+BuildRequires:  python-oslo-sphinx
+BuildRequires:  python-oslo-utils
+BuildRequires:  python-msgpack
 
 %description doc
 Documentation for the Oslo serialization library.
@@ -67,6 +69,9 @@ rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
 
 
 %changelog
+* Mon Jun 29 2015 Alan Pevec <alan.pevec@redhat.com> 1.6.0-1
+- Update to upstream 1.6.0
+
 * Thu Jun 18 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.4.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
