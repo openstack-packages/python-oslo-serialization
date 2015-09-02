@@ -1,8 +1,11 @@
-# Created by pyp2rpm-1.0.1
 %global pypi_name oslo.serialization
 %global pkg_name oslo-serialization
 
-Name:           python-oslo-serialization
+%if 0%{?fedora} >= 24
+%global with_python3 1
+%endif
+
+Name:           python-%{pkg_name}
 Version:        XXX
 Release:        XXX
 Summary:        OpenStack oslo.serialization library
@@ -12,28 +15,82 @@ URL:            https://launchpad.net/oslo
 Source0:        https://pypi.python.org/packages/source/o/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  python2-devel
-BuildRequires:  python-pbr
-Requires:       python-babel
-Requires:       python-iso8601
-Requires:       python-oslo-utils
-Requires:       python-six
-Requires:       python-msgpack >= 0.4.0
-
 %description
 An OpenStack library for representing objects in transmittable and
 storable formats.
 
-%package doc
+%package -n python2-%{pkg_name}
+Summary:        OpenStack oslo.serialization library
+%{?python_provide:%python_provide python2-%{pkg_name}}
+
+BuildRequires:  python2-devel
+BuildRequires:  python-pbr
+# test requirements
+BuildRequires:  python-hacking
+BuildRequires:  python-mock
+BuildRequires:  python-netaddr
+BuildRequires:  python-oslotest
+BuildRequires:  python-simplejson
+BuildRequires:  python-oslo-i18n
+BuildRequires:  python-coverage
+
+Requires:       python-babel
+Requires:       python-iso8601
+Requires:       python-oslo-utils
+Requires:       python-six
+Requires:       python-msgpack
+
+%description -n python2-%{pkg_name}
+An OpenStack library for representing objects in transmittable and
+storable formats.
+
+
+%package -n python-%{pkg_name}-tests
+Summary:   Tests for OpenStack Oslo serialization library
+
+Requires:  python-%{pkg_name} = %{version}-%{release}
+
+%description -n python-%{pkg_name}-tests
+Tests for OpenStack Oslo serialization library
+
+%if 0%{?with_python3}
+%package -n python3-%{pkg_name}
+Summary:        OpenStack oslo.serialization library
+%{?python_provide:%python_provide python3-%{pkg_name}}
+
+BuildRequires:  python3-devel
+BuildRequires:  python3-pbr
+# test requirements
+BuildRequires:  python3-hacking
+BuildRequires:  python3-mock
+BuildRequires:  python3-netaddr
+BuildRequires:  python3-oslotest
+BuildRequires:  python3-simplejson
+BuildRequires:  python3-oslo-i18n
+BuildRequires:  python3-coverage
+
+Requires:       python3-babel
+Requires:       python3-iso8601
+Requires:       python3-oslo-utils
+Requires:       python3-six
+Requires:       python3-msgpack
+
+%description -n python3-%{pkg_name}
+An OpenStack library for representing objects in transmittable and
+storable formats.
+%endif
+
+%package -n python-%{pkg_name}-doc
 Summary:    Documentation for the Oslo serialization library
-Group:      Documentation
 
 BuildRequires:  python-sphinx
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  python-oslo-utils
 BuildRequires:  python-msgpack
 
-%description doc
+Requires:  python-%{pkg_name} = %{version}-%{release}
+
+%description -n python-%{pkg_name}-doc
 Documentation for the Oslo serialization library.
 
 %prep
@@ -41,29 +98,58 @@ Documentation for the Oslo serialization library.
 # Let RPM handle the dependencies
 rm -f requirements.txt
 
-
 %build
-%{__python2} setup.py build
+%py2_build
 
-# generate html docs
-sphinx-build doc/source html
-# remove the sphinx-build leftovers
-rm -rf html/.{doctrees,buildinfo}
+# doc
+export PYTHONPATH="$( pwd ):$PYTHONPATH"
+pushd doc
+sphinx-build -b html -d build/doctrees   source build/html
+popd
+# Fix hidden-file-or-dir warnings
+rm -fr doc/build/html/.buildinfo
 
+%if 0%{?with_python3}
+%py3_build
+%endif
 
 %install
-%{__python2} setup.py install --skip-build --root %{buildroot}
+%py2_install
 
-#delete tests
-rm -fr %{buildroot}%{python2_sitelib}/%{pypi_name}/tests/
+%if 0%{?with_python3}
+%py3_install
+%endif
 
-%files
-%doc README.rst LICENSE
+%check
+%{__python2} setup.py test
+%if 0%{?with_python3}
+rm -rf .testrepository
+%{__python3} setup.py test
+%endif
+
+%files -n python2-%{pkg_name}
+%doc README.rst
+%license LICENSE
 %{python2_sitelib}/oslo_serialization
 %{python2_sitelib}/*.egg-info
+%exclude %{python2_sitelib}/oslo_serialization/tests
 
-%files doc
-%doc html LICENSE
+
+%if 0%{?with_python3}
+%files -n python3-%{pkg_name}
+%doc README.rst
+%license LICENSE
+%{python3_sitelib}/oslo_serialization
+%{python3_sitelib}/*.egg-info
+%exclude %{python3_sitelib}/oslo_serialization/tests
+%endif
+
+%files -n python-%{pkg_name}-doc
+%doc doc/build/html
+%license LICENSE
+
+%files -n python-%{pkg_name}-tests
+%{python2_sitelib}/oslo_serialization/tests
 
 
 %changelog
