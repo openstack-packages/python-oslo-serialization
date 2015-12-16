@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_2d841c0b",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002924
+      },
+      "writtenOn": "2015-12-16T10:28:14Z",
+      "side": 1,
+      "message": "Obsoletes is missing here.",
+      "revId": "8b325e44fe58da5fa887463d5e954b9c2e341afa",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
