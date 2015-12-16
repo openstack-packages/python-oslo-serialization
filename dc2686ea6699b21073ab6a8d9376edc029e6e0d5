@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_0d9a0014",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 6
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1002924
+      },
+      "writtenOn": "2015-12-16T11:23:28Z",
+      "side": 1,
+      "message": "License should be %license",
+      "revId": "dc2686ea6699b21073ab6a8d9376edc029e6e0d5",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
