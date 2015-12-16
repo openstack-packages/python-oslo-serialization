@@ -16,6 +16,116 @@
       "revId": "8b325e44fe58da5fa887463d5e954b9c2e341afa",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac4a560_2d9b3c68",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003941
+      },
+      "writtenOn": "2015-12-16T10:36:49Z",
+      "side": 1,
+      "message": "the python_provide macro should take care of that.",
+      "parentUuid": "5ac4a560_2d841c0b",
+      "revId": "8b325e44fe58da5fa887463d5e954b9c2e341afa",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac4a560_0d8da031",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1003941
+      },
+      "writtenOn": "2015-12-16T10:36:49Z",
+      "side": 1,
+      "message": "nit: for consistency, let\u0027s keep all BuildRequires together for the subpackage",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "8b325e44fe58da5fa887463d5e954b9c2e341afa",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac4a560_4d9eb857",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003941
+      },
+      "writtenOn": "2015-12-16T10:36:49Z",
+      "side": 1,
+      "message": "The -tests package should Require the BuildRequires associated with tests from the main package.",
+      "range": {
+        "startLine": 51,
+        "startChar": 30,
+        "endLine": 51,
+        "endChar": 31
+      },
+      "revId": "8b325e44fe58da5fa887463d5e954b9c2e341afa",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac4a560_ed894427",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1003941
+      },
+      "writtenOn": "2015-12-16T10:36:49Z",
+      "side": 1,
+      "message": "nit: for consistency, let\u0027s keep all BuildRequires together for the subpackage",
+      "range": {
+        "startLine": 77,
+        "startChar": 24,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "8b325e44fe58da5fa887463d5e954b9c2e341afa",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ac4a560_cd9ba870",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1003941
+      },
+      "writtenOn": "2015-12-16T10:36:49Z",
+      "side": 1,
+      "message": "License is not needed, since the test package requires the base package, and it includes the license file.",
+      "range": {
+        "startLine": 149,
+        "startChar": 9,
+        "endLine": 149,
+        "endChar": 16
+      },
+      "revId": "8b325e44fe58da5fa887463d5e954b9c2e341afa",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
