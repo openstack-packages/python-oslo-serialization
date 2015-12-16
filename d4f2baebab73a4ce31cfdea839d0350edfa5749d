@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5ac4a560_20a7c30d",
+        "filename": "python-oslo-serialization.spec",
+        "patchSetId": 7
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1003941
+      },
+      "writtenOn": "2015-12-16T12:12:51Z",
+      "side": 1,
+      "message": "It should require:\n\npython-hacking\npython-mock\npython-netaddr\n...\n\ni.e. the test-associated BR for the main package.",
+      "range": {
+        "startLine": 51,
+        "startChar": 52,
+        "endLine": 51,
+        "endChar": 53
+      },
+      "revId": "d4f2baebab73a4ce31cfdea839d0350edfa5749d",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
