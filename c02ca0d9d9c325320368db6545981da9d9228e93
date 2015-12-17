@@ -1,0 +1,9 @@
+Verified+1: rdo-ci-jenkins <whayutin+rdocijenkins@redhat.com>
+Code-Review+1: Javier Peña <jpena@redhat.com>
+Code-Review+2: Matthias Runge <mrunge@matthias-runge.de>
+Verified+1: Matthias Runge <mrunge@matthias-runge.de>
+Submitted-by: Javier Peña <jpena@redhat.com>
+Submitted-at: Thu, 17 Dec 2015 12:29:00 +0100
+Reviewed-on: https://review.gerrithub.io/245064
+Project: openstack-packages/python-oslo-serialization
+Branch: refs/heads/rpm-master
