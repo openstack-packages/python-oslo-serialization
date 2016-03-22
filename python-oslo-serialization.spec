@@ -5,9 +5,11 @@
 %global with_python3 1
 %endif
 
+%{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        2.4.0
+Release:        1%{?dist}
 Summary:        OpenStack oslo.serialization library
 
 License:        ASL 2.0
@@ -160,3 +162,6 @@ rm -rf .testrepository
 
 
 %changelog
+* Tue Mar 22 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.4.0-
+- Update to 2.4.0
+
